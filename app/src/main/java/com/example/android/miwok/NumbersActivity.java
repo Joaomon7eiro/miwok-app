@@ -31,16 +31,16 @@ public class NumbersActivity extends AppCompatActivity {
 
         ArrayList<Word> mNumbers = new ArrayList<>();
 
-        mNumbers.add(new Word("lutti", "one"));
-        mNumbers.add(new Word("otiiko", "two"));
-        mNumbers.add(new Word("tolooskosu", "three"));
-        mNumbers.add(new Word("oyyisa", "four"));
-        mNumbers.add(new Word("massokka", "five"));
-        mNumbers.add(new Word("temmokka", "six"));
-        mNumbers.add(new Word("kenekaku", "seven"));
-        mNumbers.add(new Word("kawinta", "eight"));
-        mNumbers.add(new Word("wo´e", "nine"));
-        mNumbers.add(new Word("na´áacha", "ten"));
+        mNumbers.add(new Word("lutti", "one", R.drawable.number_one));
+        mNumbers.add(new Word("otiiko", "two", R.drawable.number_two));
+        mNumbers.add(new Word("tolooskosu", "three", R.drawable.number_three));
+        mNumbers.add(new Word("oyyisa", "four", R.drawable.number_four));
+        mNumbers.add(new Word("massokka", "five", R.drawable.number_five));
+        mNumbers.add(new Word("temmokka", "six", R.drawable.number_six));
+        mNumbers.add(new Word("kenekaku", "seven", R.drawable.number_seven));
+        mNumbers.add(new Word("kawinta", "eight", R.drawable.number_eight));
+        mNumbers.add(new Word("wo´e", "nine", R.drawable.number_nine));
+        mNumbers.add(new Word("na´áacha", "ten", R.drawable.number_ten));
 
         ListView listView = findViewById(R.id.list);
 
