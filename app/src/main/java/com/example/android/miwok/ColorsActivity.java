@@ -28,22 +28,20 @@ public class ColorsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        ArrayList<Word> mNumbers = new ArrayList<>();
+        ArrayList<Word> mColors = new ArrayList<>();
 
-        mNumbers.add(new Word("lutti", "one", R.drawable.number_one));
-        mNumbers.add(new Word("otiiko", "two", R.drawable.number_two));
-        mNumbers.add(new Word("tolooskosu", "three", R.drawable.number_three));
-        mNumbers.add(new Word("oyyisa", "four", R.drawable.number_four));
-        mNumbers.add(new Word("massokka", "five", R.drawable.number_five));
-        mNumbers.add(new Word("temmokka", "six", R.drawable.number_six));
-        mNumbers.add(new Word("kenekaku", "seven", R.drawable.number_seven));
-        mNumbers.add(new Word("kawinta", "eight", R.drawable.number_eight));
-        mNumbers.add(new Word("wo´e", "nine", R.drawable.number_nine));
-        mNumbers.add(new Word("na´áacha", "ten", R.drawable.number_ten));
+        mColors.add(new Word("weṭeṭṭi", "red", R.drawable.color_red));
+        mColors.add(new Word("chokokki", "green", R.drawable.color_green));
+        mColors.add(new Word("ṭakaakki", "brown", R.drawable.color_brown));
+        mColors.add(new Word("ṭopoppi", "gray", R.drawable.color_gray));
+        mColors.add(new Word("kululli", "black", R.drawable.color_black));
+        mColors.add(new Word("kelelli", "white", R.drawable.color_white));
+        mColors.add(new Word("ṭopiisә", "dusty yellow", R.drawable.color_dusty_yellow));
+        mColors.add(new Word("chiwiiṭә", "mustard yellow", R.drawable.color_mustard_yellow));
 
         ListView listView = findViewById(R.id.list);
 
-        WordAdapter adapter = new WordAdapter(this, mNumbers);
+        WordAdapter adapter = new WordAdapter(this, mColors, R.color.category_colors);
         listView.setAdapter(adapter);
     }
 }

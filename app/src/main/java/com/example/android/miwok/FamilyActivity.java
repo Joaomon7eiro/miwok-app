@@ -28,22 +28,22 @@ public class FamilyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        ArrayList<Word> mNumbers = new ArrayList<>();
+        ArrayList<Word> mFamily = new ArrayList<>();
 
-        mNumbers.add(new Word("lutti", "one", R.drawable.number_one));
-        mNumbers.add(new Word("otiiko", "two", R.drawable.number_two));
-        mNumbers.add(new Word("tolooskosu", "three", R.drawable.number_three));
-        mNumbers.add(new Word("oyyisa", "four", R.drawable.number_four));
-        mNumbers.add(new Word("massokka", "five", R.drawable.number_five));
-        mNumbers.add(new Word("temmokka", "six", R.drawable.number_six));
-        mNumbers.add(new Word("kenekaku", "seven", R.drawable.number_seven));
-        mNumbers.add(new Word("kawinta", "eight", R.drawable.number_eight));
-        mNumbers.add(new Word("wo´e", "nine", R.drawable.number_nine));
-        mNumbers.add(new Word("na´áacha", "ten", R.drawable.number_ten));
+        mFamily.add(new Word("әpә", "father", R.drawable.family_father));
+        mFamily.add(new Word("әṭa", "mother", R.drawable.family_mother));
+        mFamily.add(new Word("angsi", "son", R.drawable.family_son));
+        mFamily.add(new Word("tune", "daughter", R.drawable.family_daughter));
+        mFamily.add(new Word("taachi", "older brother", R.drawable.family_older_brother));
+        mFamily.add(new Word("chalitti", "younger brother", R.drawable.family_younger_brother));
+        mFamily.add(new Word("teṭe", "older sister", R.drawable.family_older_sister));
+        mFamily.add(new Word("kolliti", "younger sister", R.drawable.family_younger_sister));
+        mFamily.add(new Word("ama", "grandmother", R.drawable.family_grandmother));
+        mFamily.add(new Word("paapa", "grandfather", R.drawable.family_grandfather));
 
         ListView listView = findViewById(R.id.list);
 
-        WordAdapter adapter = new WordAdapter(this, mNumbers);
+        WordAdapter adapter = new WordAdapter(this, mFamily, R.color.category_family);
         listView.setAdapter(adapter);
     }
 }

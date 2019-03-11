@@ -28,22 +28,22 @@ public class PhrasesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        ArrayList<Word> mNumbers = new ArrayList<>();
+        ArrayList<Word> mPhrases = new ArrayList<>();
 
-        mNumbers.add(new Word("lutti", "one"));
-        mNumbers.add(new Word("otiiko", "two"));
-        mNumbers.add(new Word("tolooskosu", "three"));
-        mNumbers.add(new Word("oyyisa", "four"));
-        mNumbers.add(new Word("massokka", "five"));
-        mNumbers.add(new Word("temmokka", "six"));
-        mNumbers.add(new Word("kenekaku", "seven"));
-        mNumbers.add(new Word("kawinta", "eight"));
-        mNumbers.add(new Word("wo´e", "nine"));
-        mNumbers.add(new Word("na´áacha", "ten"));
+        mPhrases.add(new Word("minto wuksus", "Where are you going?"));
+        mPhrases.add(new Word("tinnә oyaase'nә", "What is your name?"));
+        mPhrases.add(new Word("oyaaset...", "My name is..."));
+        mPhrases.add(new Word("michәksәs?", "How are you feeling?"));
+        mPhrases.add(new Word("kuchi achit", "I’m feeling good."));
+        mPhrases.add(new Word("әәnәs'aa?", "Are you coming?"));
+        mPhrases.add(new Word("hәә’ әәnәm", "Yes, I’m coming."));
+        mPhrases.add(new Word("әәnәm", "I’m coming."));
+        mPhrases.add(new Word("yoowutis", "Let’s go."));
+        mPhrases.add(new Word("әnni'nem", "Come here."));
 
         ListView listView = findViewById(R.id.list);
 
-        WordAdapter adapter = new WordAdapter(this, mNumbers);
+        WordAdapter adapter = new WordAdapter(this, mPhrases, R.color.category_phrases);
         listView.setAdapter(adapter);
     }
 }
