@@ -34,8 +34,10 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         Word word = getItem(position);
 
+        int mColor = ContextCompat.getColor(getContext(), mItemColorResourceId);
+
         LinearLayout mWords = mListItemView.findViewById(R.id.words);
-        mWords.setBackgroundColor(ContextCompat.getColor(getContext(), mItemColorResourceId));
+        mWords.setBackgroundColor(mColor);
 
         TextView mMiwokWord = mListItemView.findViewById(R.id.miwok_word);
         mMiwokWord.setText(word.getMiwokTranslation());
@@ -43,8 +45,10 @@ public class WordAdapter extends ArrayAdapter<Word> {
         TextView mDefaultWord = mListItemView.findViewById(R.id.english_word);
         mDefaultWord.setText(word.getDefaultTranslation());
 
-        ImageView mImage = mListItemView.findViewById(R.id.word_image);
+        ImageView mPlay = mListItemView.findViewById(R.id.play);
+        mPlay.setBackgroundColor(mColor);
 
+        ImageView mImage = mListItemView.findViewById(R.id.word_image);
         if (word.hasImage()) {
             mImage.setImageResource(word.getImageResourceId());
             mImage.setVisibility(View.VISIBLE);
