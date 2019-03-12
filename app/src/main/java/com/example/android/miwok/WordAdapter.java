@@ -45,9 +45,6 @@ public class WordAdapter extends ArrayAdapter<Word> {
         TextView mDefaultWord = mListItemView.findViewById(R.id.english_word);
         mDefaultWord.setText(word.getDefaultTranslation());
 
-        ImageView mPlay = mListItemView.findViewById(R.id.play);
-        mPlay.setBackgroundColor(mColor);
-
         ImageView mImage = mListItemView.findViewById(R.id.word_image);
         if (word.hasImage()) {
             mImage.setImageResource(word.getImageResourceId());
