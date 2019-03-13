@@ -87,7 +87,7 @@ public class PhrasesFragment extends Fragment {
 
         ListView mListView = mRootView.findViewById(R.id.list);
 
-        WordAdapter mAdapter = new WordAdapter(this, mPhrases, R.color.category_phrases);
+        WordAdapter mAdapter = new WordAdapter(getActivity(), mPhrases, R.color.category_phrases);
         mListView.setAdapter(mAdapter);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -87,7 +87,7 @@ public class FamilyFragment extends Fragment {
 
         ListView mListView = mRootView.findViewById(R.id.list);
 
-        WordAdapter mAdapter = new WordAdapter(this, mFamily, R.color.category_family);
+        WordAdapter mAdapter = new WordAdapter(getActivity(), mFamily, R.color.category_family);
         mListView.setAdapter(mAdapter);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
