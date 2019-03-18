@@ -26,33 +26,33 @@ public class WordAdapter extends ArrayAdapter<Word> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View mListItemView = convertView;
+        View listItemView = convertView;
 
-        if (mListItemView == null) {
-            mListItemView = LayoutInflater.from(getContext()).inflate(R.layout.simple_list, parent, false);
+        if (listItemView == null) {
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.simple_list, parent, false);
         }
 
         Word word = getItem(position);
 
-        int mColor = ContextCompat.getColor(getContext(), mItemColorResourceId);
+        int color = ContextCompat.getColor(getContext(), mItemColorResourceId);
 
-        LinearLayout mWords = mListItemView.findViewById(R.id.words);
-        mWords.setBackgroundColor(mColor);
+        LinearLayout words = listItemView.findViewById(R.id.words);
+        words.setBackgroundColor(color);
 
-        TextView mMiwokWord = mListItemView.findViewById(R.id.miwok_word);
-        mMiwokWord.setText(word.getMiwokTranslation());
+        TextView miwokWord = listItemView.findViewById(R.id.miwok_word);
+        miwokWord.setText(word.getMiwokTranslation());
 
-        TextView mDefaultWord = mListItemView.findViewById(R.id.english_word);
-        mDefaultWord.setText(word.getDefaultTranslation());
+        TextView defaultWord = listItemView.findViewById(R.id.english_word);
+        defaultWord.setText(word.getDefaultTranslation());
 
-        ImageView mImage = mListItemView.findViewById(R.id.word_image);
+        ImageView image = listItemView.findViewById(R.id.word_image);
         if (word.hasImage()) {
-            mImage.setImageResource(word.getImageResourceId());
-            mImage.setVisibility(View.VISIBLE);
+            image.setImageResource(word.getImageResourceId());
+            image.setVisibility(View.VISIBLE);
         } else {
-            mImage.setVisibility(View.GONE);
+            image.setVisibility(View.GONE);
         }
 
-        return mListItemView;
+        return listItemView;
     }
 }

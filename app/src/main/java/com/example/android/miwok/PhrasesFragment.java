@@ -58,48 +58,48 @@ public class PhrasesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View mRootView = inflater.inflate(R.layout.word_list, container, false);
+        View rootView = inflater.inflate(R.layout.word_list, container, false);
 
-        final ArrayList<Word> mPhrases = new ArrayList<>();
+        final ArrayList<Word> phrases = new ArrayList<>();
 
         mAudioManager = (AudioManager) getActivity().getApplication().getSystemService(Context.AUDIO_SERVICE);
 
-        mPhrases.add(new Word("minto wuksus", "Where are you going?",
+        phrases.add(new Word("minto wuksus", "Where are you going?",
                 R.raw.phrase_where_are_you_going));
-        mPhrases.add(new Word("tinnә oyaase'nә", "What is your name?",
+        phrases.add(new Word("tinnә oyaase'nә", "What is your name?",
                 R.raw.phrase_what_is_your_name));
-        mPhrases.add(new Word("oyaaset...", "My name is...",
+        phrases.add(new Word("oyaaset...", "My name is...",
                 R.raw.phrase_my_name_is));
-        mPhrases.add(new Word("michәksәs?", "How are you feeling?",
+        phrases.add(new Word("michәksәs?", "How are you feeling?",
                 R.raw.phrase_how_are_you_feeling));
-        mPhrases.add(new Word("kuchi achit", "I’m feeling good.",
+        phrases.add(new Word("kuchi achit", "I’m feeling good.",
                 R.raw.phrase_im_feeling_good));
-        mPhrases.add(new Word("әәnәs'aa?", "Are you coming?",
+        phrases.add(new Word("әәnәs'aa?", "Are you coming?",
                 R.raw.phrase_are_you_coming));
-        mPhrases.add(new Word("hәә’ әәnәm", "Yes, I’m coming.",
+        phrases.add(new Word("hәә’ әәnәm", "Yes, I’m coming.",
                 R.raw.phrase_yes_im_coming));
-        mPhrases.add(new Word("әәnәm", "I’m coming.",
+        phrases.add(new Word("әәnәm", "I’m coming.",
                 R.raw.phrase_im_coming));
-        mPhrases.add(new Word("yoowutis", "Let’s go.",
+        phrases.add(new Word("yoowutis", "Let’s go.",
                 R.raw.phrase_lets_go));
-        mPhrases.add(new Word("әnni'nem", "Come here.",
+        phrases.add(new Word("әnni'nem", "Come here.",
                 R.raw.phrase_come_here));
 
-        ListView mListView = mRootView.findViewById(R.id.list);
+        ListView listView = rootView.findViewById(R.id.list);
 
-        WordAdapter mAdapter = new WordAdapter(getActivity(), mPhrases, R.color.category_phrases);
-        mListView.setAdapter(mAdapter);
+        WordAdapter adapter = new WordAdapter(getActivity(), phrases, R.color.category_phrases);
+        listView.setAdapter(adapter);
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 releaseMediaPlayer();
 
-                int mResult = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
+                int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
                         AudioManager.AUDIOFOCUS_GAIN_TRANSIENT, AudioManager.STREAM_MUSIC);
 
-                if (mResult == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    mMediaPlayer = MediaPlayer.create(getActivity(), mPhrases.get(i).getAudioResourceId());
+                if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                    mMediaPlayer = MediaPlayer.create(getActivity(), phrases.get(i).getAudioResourceId());
                     mMediaPlayer.start();
 
                     mMediaPlayer.setOnCompletionListener(mOnCompletionListener);
@@ -107,7 +107,7 @@ public class PhrasesFragment extends Fragment {
             }
         });
 
-        return mRootView;
+        return rootView;
     }
 
     @Override

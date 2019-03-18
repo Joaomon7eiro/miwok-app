@@ -58,39 +58,39 @@ public class FamilyFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View mRootView = inflater.inflate(R.layout.word_list, container, false);
+        View rootView = inflater.inflate(R.layout.word_list, container, false);
 
-        final ArrayList<Word> mFamily = new ArrayList<>();
+        final ArrayList<Word> family = new ArrayList<>();
 
         mAudioManager = (AudioManager) getActivity().getApplication().getSystemService(Context.AUDIO_SERVICE);
 
-        mFamily.add(new Word("әpә", "father",
+        family.add(new Word("әpә", "father",
                 R.drawable.family_father, R.raw.family_father));
-        mFamily.add(new Word("әṭa", "mother",
+        family.add(new Word("әṭa", "mother",
                 R.drawable.family_mother, R.raw.family_mother));
-        mFamily.add(new Word("angsi", "son",
+        family.add(new Word("angsi", "son",
                 R.drawable.family_son, R.raw.family_son));
-        mFamily.add(new Word("tune", "daughter",
+        family.add(new Word("tune", "daughter",
                 R.drawable.family_daughter, R.raw.family_daughter));
-        mFamily.add(new Word("taachi", "older brother",
+        family.add(new Word("taachi", "older brother",
                 R.drawable.family_older_brother, R.raw.family_older_brother));
-        mFamily.add(new Word("chalitti", "younger brother",
+        family.add(new Word("chalitti", "younger brother",
                 R.drawable.family_younger_brother, R.raw.family_younger_brother));
-        mFamily.add(new Word("teṭe", "older sister",
+        family.add(new Word("teṭe", "older sister",
                 R.drawable.family_older_sister, R.raw.family_older_sister));
-        mFamily.add(new Word("kolliti", "younger sister",
+        family.add(new Word("kolliti", "younger sister",
                 R.drawable.family_younger_sister, R.raw.family_younger_sister));
-        mFamily.add(new Word("ama", "grandmother",
+        family.add(new Word("ama", "grandmother",
                 R.drawable.family_grandmother, R.raw.family_grandmother));
-        mFamily.add(new Word("paapa", "grandfather",
+        family.add(new Word("paapa", "grandfather",
                 R.drawable.family_grandfather, R.raw.family_grandfather));
 
-        ListView mListView = mRootView.findViewById(R.id.list);
+        ListView listView = rootView.findViewById(R.id.list);
 
-        WordAdapter mAdapter = new WordAdapter(getActivity(), mFamily, R.color.category_family);
-        mListView.setAdapter(mAdapter);
+        WordAdapter adapter = new WordAdapter(getActivity(), family, R.color.category_family);
+        listView.setAdapter(adapter);
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 releaseMediaPlayer();
@@ -99,7 +99,7 @@ public class FamilyFragment extends Fragment {
                         AudioManager.AUDIOFOCUS_GAIN_TRANSIENT, AudioManager.STREAM_MUSIC);
 
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    mMediaPlayer = MediaPlayer.create(getActivity(), mFamily.get(i).getAudioResourceId());
+                    mMediaPlayer = MediaPlayer.create(getActivity(), family.get(i).getAudioResourceId());
                     mMediaPlayer.start();
 
                     mMediaPlayer.setOnCompletionListener(mOnCompletionListener);
@@ -107,7 +107,7 @@ public class FamilyFragment extends Fragment {
             }
         });
 
-        return mRootView;
+        return rootView;
     }
 
     @Override

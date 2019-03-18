@@ -59,44 +59,44 @@ public class ColorsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View mRootView = inflater.inflate(R.layout.word_list, container, false);
+        View rootView = inflater.inflate(R.layout.word_list, container, false);
 
-        final ArrayList<Word> mColors = new ArrayList<>();
+        final ArrayList<Word> colors = new ArrayList<>();
 
         mAudioManager = (AudioManager) getActivity().getApplication().getSystemService(Context.AUDIO_SERVICE);
 
-        mColors.add(new Word("weṭeṭṭi", "red", R.drawable.color_red,
+        colors.add(new Word("weṭeṭṭi", "red", R.drawable.color_red,
                 R.raw.color_red));
-        mColors.add(new Word("chokokki", "green", R.drawable.color_green,
+        colors.add(new Word("chokokki", "green", R.drawable.color_green,
                 R.raw.color_green));
-        mColors.add(new Word("ṭakaakki", "brown", R.drawable.color_brown,
+        colors.add(new Word("ṭakaakki", "brown", R.drawable.color_brown,
                 R.raw.color_brown));
-        mColors.add(new Word("ṭopoppi", "gray", R.drawable.color_gray,
+        colors.add(new Word("ṭopoppi", "gray", R.drawable.color_gray,
                 R.raw.color_gray));
-        mColors.add(new Word("kululli", "black", R.drawable.color_black,
+        colors.add(new Word("kululli", "black", R.drawable.color_black,
                 R.raw.color_black));
-        mColors.add(new Word("kelelli", "white", R.drawable.color_white,
+        colors.add(new Word("kelelli", "white", R.drawable.color_white,
                 R.raw.color_white));
-        mColors.add(new Word("ṭopiisә", "dusty yellow",
+        colors.add(new Word("ṭopiisә", "dusty yellow",
                 R.drawable.color_dusty_yellow, R.raw.color_dusty_yellow));
-        mColors.add(new Word("chiwiiṭә", "mustard yellow",
+        colors.add(new Word("chiwiiṭә", "mustard yellow",
                 R.drawable.color_mustard_yellow, R.raw.color_mustard_yellow));
 
-        ListView mListView = mRootView.findViewById(R.id.list);
+        ListView listView = rootView.findViewById(R.id.list);
 
-        WordAdapter mAdapter = new WordAdapter(getActivity(), mColors, R.color.category_colors);
-        mListView.setAdapter(mAdapter);
+        WordAdapter adapter = new WordAdapter(getActivity(), colors, R.color.category_colors);
+        listView.setAdapter(adapter);
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 releaseMediaPlayer();
 
-                int mResult = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
+                int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
                         AudioManager.AUDIOFOCUS_GAIN_TRANSIENT, AudioManager.STREAM_MUSIC);
 
-                if (mResult == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    mMediaPlayer = MediaPlayer.create(getActivity(), mColors.get(i).getAudioResourceId());
+                if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                    mMediaPlayer = MediaPlayer.create(getActivity(), colors.get(i).getAudioResourceId());
                     mMediaPlayer.start();
 
                     mMediaPlayer.setOnCompletionListener(mOnCompletionListener);
@@ -104,7 +104,7 @@ public class ColorsFragment extends Fragment {
             }
         });
 
-        return mRootView;
+        return rootView;
     }
 
     @Override

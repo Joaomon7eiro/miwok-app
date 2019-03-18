@@ -29,14 +29,14 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
 
-        ViewPager mViewPager = findViewById(R.id.view_pager);
+        ViewPager viewPager = findViewById(R.id.view_pager);
 
-        SimpleFragmentPagerAdapter mAdapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager(), this);
+        SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager(), this);
 
-        mViewPager.setAdapter(mAdapter);
+        viewPager.setAdapter(adapter);
 
-        TabLayout mTabLayout = findViewById(R.id.tab);
+        TabLayout tabLayout = findViewById(R.id.tab);
 
-        mTabLayout.setupWithViewPager(mViewPager);
+        tabLayout.setupWithViewPager(viewPager);
     }
 }

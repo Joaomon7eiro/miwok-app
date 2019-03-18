@@ -58,35 +58,35 @@ public class NumbersFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View mRootView =  inflater.inflate(R.layout.word_list, container, false);
-        final ArrayList<Word> mNumbers = new ArrayList<>();
+        View rootView =  inflater.inflate(R.layout.word_list, container, false);
+        final ArrayList<Word> numbers = new ArrayList<>();
 
         mAudioManager = (AudioManager) getActivity().getApplication().getSystemService(Context.AUDIO_SERVICE);
 
-        mNumbers.add(new Word("lutti", "one",
+        numbers.add(new Word("lutti", "one",
                 R.drawable.number_one, R.raw.number_one));
-        mNumbers.add(new Word("otiiko", "two",
+        numbers.add(new Word("otiiko", "two",
                 R.drawable.number_two, R.raw.number_two));
-        mNumbers.add(new Word("tolooskosu", "three",
+        numbers.add(new Word("tolooskosu", "three",
                 R.drawable.number_three, R.raw.number_three));
-        mNumbers.add(new Word("oyyisa", "four",
+        numbers.add(new Word("oyyisa", "four",
                 R.drawable.number_four, R.raw.number_four));
-        mNumbers.add(new Word("massokka", "five",
+        numbers.add(new Word("massokka", "five",
                 R.drawable.number_five, R.raw.number_five));
-        mNumbers.add(new Word("temmokka", "six",
+        numbers.add(new Word("temmokka", "six",
                 R.drawable.number_six, R.raw.number_six));
-        mNumbers.add(new Word("kenekaku", "seven",
+        numbers.add(new Word("kenekaku", "seven",
                 R.drawable.number_seven, R.raw.number_seven));
-        mNumbers.add(new Word("kawinta", "eight",
+        numbers.add(new Word("kawinta", "eight",
                 R.drawable.number_eight, R.raw.number_eight));
-        mNumbers.add(new Word("wo´e", "nine",
+        numbers.add(new Word("wo´e", "nine",
                 R.drawable.number_nine, R.raw.number_nine));
-        mNumbers.add(new Word("na´áacha", "ten",
+        numbers.add(new Word("na´áacha", "ten",
                 R.drawable.number_ten, R.raw.number_ten));
 
-        ListView listView = mRootView.findViewById(R.id.list);
+        ListView listView = rootView.findViewById(R.id.list);
 
-        WordAdapter adapter = new WordAdapter(getActivity(), mNumbers, R.color.category_numbers);
+        WordAdapter adapter = new WordAdapter(getActivity(), numbers, R.color.category_numbers);
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -98,14 +98,14 @@ public class NumbersFragment extends Fragment {
                         AudioManager.AUDIOFOCUS_GAIN_TRANSIENT, AudioManager.STREAM_MUSIC);
 
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    mMediaPlayer = MediaPlayer.create(getActivity(), mNumbers.get(i).getAudioResourceId());
+                    mMediaPlayer = MediaPlayer.create(getActivity(), numbers.get(i).getAudioResourceId());
                     mMediaPlayer.start();
                     mMediaPlayer.setOnCompletionListener(mOnCompletionListener);
                 }
             }
         });
 
-        return mRootView;
+        return rootView;
     }
 
     @Override
